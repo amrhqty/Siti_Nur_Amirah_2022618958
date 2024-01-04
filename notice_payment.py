@@ -19,6 +19,7 @@ def collect_data():
 
             # Check if all fields are filled
             if Stud_ID and Stud_Course and Lib_Incharge:
+                
                 # Connect to MySQL database
                 mydb = mysql.connector.connect(
                     host="localhost",
@@ -55,22 +56,22 @@ def collect_data():
 
 window = tk.Tk()
 window.title("Data Entry Form")
-
+window.config(bg='#3C565B')
 # Saving User Info
 user_info_frame = tk.LabelFrame(window, text="Notice payment")
 user_info_frame.grid(row=0, column=0, padx=30, pady=20)
 
-ID_label = tk.Label(user_info_frame, text="Student's ID")
+ID_label = tk.Label(user_info_frame, text="Student's ID", bg='#73A16C')
 ID_combobox = ttk.Combobox(user_info_frame, values=['14401', '14402', '14403', '14404', '14405', '11001', '11002', '11003', '11004', '11005'])
 ID_label.grid(row=0, column=0)
 ID_combobox.grid(row=0, column=1)
 
-Course_label = tk.Label(user_info_frame, text="Course")
+Course_label = tk.Label(user_info_frame, text="Course", bg='#73A16C')
 Course_combobox = ttk.Combobox(user_info_frame, values=['CDIM144', 'CDCS110'])
 Course_label.grid(row=1, column=0)
 Course_combobox.grid(row=1, column=1)
 
-Librarian_label = tk.Label(user_info_frame, text="In Charge librarian")
+Librarian_label = tk.Label(user_info_frame, text="In Charge librarian",bg='#73A16C')
 Librarian_combobox = ttk.Combobox(user_info_frame, values=["Mr. Kairul Aming", "Ms. Mira Filzah"])
 Librarian_label.grid(row=2, column=0)
 Librarian_combobox.grid(row=2, column=1)
@@ -79,7 +80,7 @@ Librarian_combobox.grid(row=2, column=1)
 window.title("Notice Payment")
 
 # Page Title
-label = tk.Label(window, text='Calculate your Package Price', font=("Times New Romans", 14, "bold"))
+label = tk.Label(window, text='Calculate your Total Charge', font=("Times New Romans", 14, "bold"), bg='#73A16C')
 label.grid(row=1, column=0, pady=10)
 
 # Trip Type Dropdown (Label)
@@ -102,7 +103,7 @@ save_button = tk.Button(window, text="Calculate", command=collect_data)
 save_button.grid(row=5, column=0, pady=10, columnspan=2)
 
 # Output Label & result
-label = tk.Label(window, text='Price Package', font=("Times New Romans", 12))
+label = tk.Label(window, text='Total Charge', font=("Times New Romans", 12))
 label.grid(row=6, column=0, pady=10, columnspan=2)
 output_label = tk.Label(window, text="")
 output_label.grid(row=7, column=0, columnspan=2)
